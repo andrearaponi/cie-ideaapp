@@ -288,7 +288,7 @@ public class Eac {
                      if (llen == 1)
                          lgn = unsignedToBytes(resp[index + 2]);
                      if (llen == 2)
-                         lgn = (resp[index + 2] << 8) | resp[index + 3];
+                         lgn = ((resp[index + 2] << 8) | resp[index + 3] & 0xff);
                      encObj = AppUtil.getSub(resp,index, llen + lgn + 2);
                      encData = AppUtil.getSub(resp,index + llen + 3, lgn - 1); // ' levo il padding indicator
                      setIndex(index,llen,lgn,2);//index += llen + lgn + 2;
@@ -312,7 +312,7 @@ public class Eac {
                          if (llen == 1)
                              lgn = resp[index + 2];
                          if (llen == 2)
-                             lgn = (resp[index + 2] << 8) | resp[index + 3];
+                             lgn = ((resp[index + 2] << 8) | resp[index + 3] & 0xff);
                          encObj = AppUtil.getSub(resp,index, llen + lgn + 2);
                          encData = AppUtil.getSub(resp,index + llen + 2, lgn); // ' levo il padding indicator
                          setIndex(index,llen,lgn,2);//index += llen + lgn + 2;

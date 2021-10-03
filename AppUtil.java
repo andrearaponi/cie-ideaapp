@@ -11,7 +11,7 @@ public class AppUtil {
 		int val = +0;
 		for (int i =0 ; i < dataB.length; i++)
 		{
-			val = val << 8 | dataB[i];
+			val = (val << 8 | dataB[i] & 0xff);
 		}
 		return val;
 	}
